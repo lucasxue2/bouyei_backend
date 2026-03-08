@@ -40,9 +40,10 @@ export default {
       return new Uint8Array(bits);
     };
 
-    const origin = request.headers.get("Origin");
-    const allowOrigins = new Set(["https://bouyei.net", "https://www.bouyei.net"]);
-    const corsHeaders = allowOrigins.has(origin)
+    const rawOrigin = request.headers.get("Origin");
+    const origin = typeof rawOrigin === "string" ? rawOrigin.trim().toLowerCase() : null;
+    const isAllowedOrigin = typeof origin === "string" && /^https:\/\/(www\.)?bouyei\.net$/.test(origin);
+    const corsHeaders = isAllowedOrigin
       ? {
           "access-control-allow-origin": origin,
           "access-control-allow-credentials": "true",
