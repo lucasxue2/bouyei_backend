@@ -1,3 +1,8 @@
 name = "bouyei-backend"
 main = "src/index.js"
 compatibility_date = "2025-01-01"
+
+[[d1_databases]]
+binding = "BOUYEI_USER"
+database_name = "bouyei-user"
+database_id = "def1b0c6-f405-43dc-818a-bb4761efd201"
