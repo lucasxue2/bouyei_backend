@@ -3,7 +3,7 @@ export default {
     const url = new URL(request.url);
 
     if (request.method === "GET" && url.pathname === "/") {
-      return new Response("hello", {
+      return new Response("working", {
         status: 200,
         headers: {
           "content-type": "text/plain; charset=utf-8",
